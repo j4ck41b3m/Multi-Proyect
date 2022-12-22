@@ -127,7 +127,7 @@ public class Connection : MonoBehaviourPunCallbacks
         Estado("No ha sido posible crear la sala: " + message);
     }
 
-    /*override
+    override
     public void OnPlayerEnteredRoom(Player newPlayer)
     {
         ActualizarPanelDeJugadores();
@@ -137,7 +137,7 @@ public class Connection : MonoBehaviourPunCallbacks
     public void OnPlayerLeftRoom(Player otherPlayer)
     {
         ActualizarPanelDeJugadores();
-    }*/
+    }
 
 
 
