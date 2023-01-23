@@ -32,7 +32,7 @@ public class RPlayer : MonoBehaviour
 
     public LayerMask Ground;
 
-    public GameObject blaster, upblaster, bullet, upbullet, super, runsuper;
+    public GameObject blaster, upblaster, bullet, upbullet, super, runsuper, lienzo;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,8 @@ public class RPlayer : MonoBehaviour
         vulnerable = true;
 
         tiempoInicio = Time.time;
-
+        lienzo = GameObject.Find("Canvas");
+            canvas = lienzo.GetComponent<Canvas>();
         hud = canvas.GetComponent<ControlHud>();
         hud.SetPower(numeroPowerUps);
         hud.SetVidas(vidas);

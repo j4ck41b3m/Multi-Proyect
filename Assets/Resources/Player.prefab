@@ -472,6 +472,7 @@ MonoBehaviour:
   upbullet: {fileID: 2889446724739742511, guid: 71894382e07a51c408d3022eeedb6205, type: 3}
   super: {fileID: 3309425980561063342, guid: bf30904217598a6469a1e302ae186e22, type: 3}
   runsuper: {fileID: 8387293560518262007}
+  lienzo: {fileID: 0}
 --- !u!50 &8387293560816131304
 Rigidbody2D:
   serializedVersion: 4
@@ -697,6 +698,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5292940819005480642}
+  - {fileID: -5415452698604924443}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -730,8 +732,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters: []
-  m_SynchronizeLayers: []
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 0
+    Name: aire
+  - Type: 9
+    SynchronizeType: 0
+    Name: jump
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
 --- !u!1 &8387293561095994214
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722847604634224345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -553,6 +553,7 @@ MonoBehaviour:
   upbullet: {fileID: 2889446724739742511, guid: 71894382e07a51c408d3022eeedb6205, type: 3}
   super: {fileID: 3309425980561063342, guid: bf30904217598a6469a1e302ae186e22, type: 3}
   runsuper: {fileID: 722847606030443944}
+  lienzo: {fileID: 0}
 --- !u!50 &722847606339494995
 Rigidbody2D:
   serializedVersion: 4

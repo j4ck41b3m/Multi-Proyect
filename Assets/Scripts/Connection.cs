@@ -12,31 +12,32 @@ public class Connection : MonoBehaviourPunCallbacks
 
     #region Variables Públicas
 
-    [Header ("Paneles")]
-    public GameObject panelPrincipal; // Pantalla de inicio
-    public GameObject panelCrearSala; // Panel cuando un jugador quiere crear una sala nueva
-    public GameObject panelUnirSala; // Panel para unirse a una partica creada
-    public GameObject panelDeSala;   // Panel que muestra el contenido    
-    public GameObject panelAvatar;
-
+    
     [Header("Botones")]
+    public Button btnIniciarPartida;
     public Button btnCrearSala;
     public Button btnUnirSala;
-    public Button btnIniciarPartida;
 
-    [Header("InputField")]
+    [Header("Paneles")]
+    public GameObject panelPrincipal;
+    public GameObject panelCrearSala;
+    public GameObject panelUnirSala;
+    public GameObject panelDeSala;
+    public GameObject panelAvatar;
+
+    [Header("Inputs")]
+    public TMP_InputField inputNombreSalaAUnir;
+    public Toggle chkPrivada;
     public TMP_InputField inputNickName;    
     public TMP_InputField inputMaxPlayers;
     public TMP_InputField inputNombreSala;
-    public Toggle chkPrivada;
-    public TMP_InputField inputNombreSalaAUnir;
-
     [Header("Textos")]
-    public TMP_Text txtBienvenida;
-    public TMP_Text txtCapacidad;
     public TMP_Text txtNombreSala;
     public TMP_Text txtEstado;
+    public TMP_Text txtBienvenida;
+    public TMP_Text txtCapacidad;
     public TMP_Text txtAvatar;
+
 
     [Header("ListaJugadores")]
     public GameObject contenedorJugadores;
@@ -44,11 +45,12 @@ public class Connection : MonoBehaviourPunCallbacks
     public int avatarSeleccionado;
 
     [Header("ListaSalas")]
-    public GameObject contenedorSalas;
     public GameObject elemSala;
 
-    
-    
+    public GameObject contenedorSalas;
+
+
+
 
 
     #endregion
@@ -58,37 +60,25 @@ public class Connection : MonoBehaviourPunCallbacks
     Dictionary<string, RoomInfo> listaSalas;
     ExitGames.Client.Photon.Hashtable propiedadesJugador;
 
-    static string [] listaAvatar = { "Frog", "VirtualGuy" }; 
+    static string [] listaAvatar = { "Aka", "Ao" }; 
 
     #endregion
 
 
     private void Start()
     {
-        // Mostramos el panel de inicio.
         CambiarPanel(panelPrincipal);
         
-
-        // Declaramos listas para jugadores y salas.
         propiedadesJugador = new ExitGames.Client.Photon.Hashtable();
         avatarSeleccionado = -1;
         listaSalas = new Dictionary<string, RoomInfo>();
 
-
-        // Conectamos al servidor utilizando la configuración del proyecto.
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.AutomaticallySyncScene = true;
         
-
     }
 
-    public void Update()
-    {
-
-
-
-
-    }
+    
 
 
 
@@ -144,10 +134,6 @@ public class Connection : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomlist)
     {
-        // Comprobar los elemenos uno por uno de lista roomlist
-        // Si es un elemento borrado, lo buscamos en nuestra lista y lo borramos.
-        // Si es un elemento nuevo, lo añadimos.
-        // Si es un elemento modificado, machacamos su información.
         
         foreach (RoomInfo r in roomlist)
         {
@@ -279,14 +265,13 @@ public class Connection : MonoBehaviourPunCallbacks
         
         foreach(RoomInfo r in listaSalas.Values)
         {
-            // Creamos un nuevo botón y lo añadimos al contenedor
             GameObject nuevoElemento = Instantiate(elemSala);
             nuevoElemento.transform.SetParent(contenedorSalas.transform, false);
-            // Localizamos las etiquetas y las actualizamos
             nuevoElemento.transform.Find("txtNombreSala").GetComponent<TextMeshProUGUI>().text = r.Name;
+
+
             nuevoElemento.transform.Find("txtCpacidadSala").GetComponent<TextMeshProUGUI>().text = r.PlayerCount + " / " + r.MaxPlayers;
 
-            //Añadimos la acción de selección en la lista.
             nuevoElemento.GetComponent<Button>().onClick.AddListener(() => { AlPulsarBtnUnirseASalaDeLista(r.Name); });
         }
 
@@ -329,7 +314,8 @@ public class Connection : MonoBehaviourPunCallbacks
             {
                 RoomOptions opcionesDeSala = new RoomOptions();
                 opcionesDeSala.MaxPlayers = maxJugadores;
-                opcionesDeSala.IsVisible = !chkPrivada.isOn; // Es visible si no es privada
+                opcionesDeSala.IsVisible = !chkPrivada.isOn; 
+
 
                 PhotonNetwork.CreateRoom(inputNombreSala.text, opcionesDeSala, TypedLobby.Default);
             }
@@ -383,11 +369,11 @@ public class Connection : MonoBehaviourPunCallbacks
     {
         switch (nombre)
         {
-            case "Frog":
+            case "Aka":
                 avatarSeleccionado = 0;
                 break;
 
-            case "VirtualGuy":
+            case "Ao":
                 avatarSeleccionado = 1;
                 break;
         }
@@ -397,13 +383,10 @@ public class Connection : MonoBehaviourPunCallbacks
 
     public void AlPulsarBtnAceptarAvatar()
     {
-        // Almacenamos en las propiedades del jugador el avatar seleccionado.
         propiedadesJugador["avatar"] = avatarSeleccionado;
         PhotonNetwork.LocalPlayer.SetCustomProperties(propiedadesJugador);
 
-        // Actualizamos panel de jugadores
         ActualizarPanelDeJugadores();
-        // Mensaje depuración
         Estado("Avatar Seleccionado: " + listaAvatar[avatarSeleccionado]);
         
     }

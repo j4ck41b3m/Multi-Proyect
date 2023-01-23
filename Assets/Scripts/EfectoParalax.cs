@@ -12,8 +12,10 @@ public class EfectoParalax : MonoBehaviour
     void Start()
     {
         //camara = Camera.main.transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         camara = player.transform;
         camaraUltimaPos = camara.position;
+        
     }
 
     // Update is called once per frame
