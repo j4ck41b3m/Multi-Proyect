@@ -6444,14 +6444,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363d66d6f6bc17241b99e699df73e6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btnIniciarPartida: {fileID: 849518691}
+  btnCrearSala: {fileID: 1656305503}
+  btnUnirSala: {fileID: 343424189}
   panelPrincipal: {fileID: 648240465}
   panelCrearSala: {fileID: 809684836}
   panelUnirSala: {fileID: 1551611182}
   panelDeSala: {fileID: 1772816388}
   panelAvatar: {fileID: 392289775}
-  btnIniciarPartida: {fileID: 849518691}
-  btnCrearSala: {fileID: 1656305503}
-  btnUnirSala: {fileID: 343424189}
   inputNombreSalaAUnir: {fileID: 1173006187}
   chkPrivada: {fileID: 212001565}
   inputNickName: {fileID: 666687382}
@@ -8945,6 +8945,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1456633229}
+        m_TargetAssemblyTypeName: Connection, Assembly-CSharp
+        m_MethodName: ActualizarPanelDeJugadores
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class RPlayer : MonoBehaviour
+public class RPlayer : MonoBehaviourPun
 {
     public float velocidad;
     public Rigidbody2D jugador;
@@ -34,6 +35,9 @@ public class RPlayer : MonoBehaviour
 
     public GameObject blaster, upblaster, bullet, upbullet, super, runsuper, lienzo;
     // Start is called before the first frame update
+
+    
+
     void Start()
     {
         blast = blaster.GetComponent<SpriteRenderer>();
@@ -63,6 +67,7 @@ public class RPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         //animator.Play("chargeUP");
 
         if (numeroPowerUps > 0)
@@ -431,6 +436,10 @@ public class RPlayer : MonoBehaviour
     private void Awake()
     {
         audioP = GetComponent<AudioSource>();
+        if (!photonView.IsMine)
+        {
+            this.enabled = false;
+        }
     }
     public bool TocandoSuelo()
     {

@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if (PhotonNetwork.IsMasterClient)
-            PhotonNetwork.Instantiate("Player", new Vector3(1, 0.2f, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Player", new Vector3(10, 15, 0), Quaternion.identity);
         else
-            PhotonNetwork.Instantiate("Player2", new Vector3(0.5f, 0.2f, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Player2", new Vector3(14, 15, 0), Quaternion.identity);
         
     }
 
