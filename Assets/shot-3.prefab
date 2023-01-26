@@ -224,7 +224,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   "da\xF1o": 5
-  player: {fileID: 0}
+  player1: {fileID: 8387293560816131305, guid: 403c1fcfc87d8024db8fe0214f64b42e, type: 3}
+  player2: {fileID: 722847606339494998, guid: 7e4f92aa641d3d942a9ac33596b23d83, type: 3}
 --- !u!50 &3934269686364160707
 Rigidbody2D:
   serializedVersion: 4

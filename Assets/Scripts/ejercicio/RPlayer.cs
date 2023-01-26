@@ -33,7 +33,7 @@ public class RPlayer : MonoBehaviourPun
 
     public LayerMask Ground;
 
-    public GameObject blaster, upblaster, bullet, upbullet, super, runsuper, lienzo;
+    public GameObject blaster, upblaster, bullet, upbullet, super, runsuper, lienzo, camara;
     // Start is called before the first frame update
 
     
@@ -67,6 +67,7 @@ public class RPlayer : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+       
        
         //animator.Play("chargeUP");
 
@@ -438,6 +439,8 @@ public class RPlayer : MonoBehaviourPun
         audioP = GetComponent<AudioSource>();
         if (!photonView.IsMine)
         {
+            camara.SetActive(false);
+
             this.enabled = false;
         }
     }
@@ -480,7 +483,11 @@ public class RPlayer : MonoBehaviourPun
     {
         if (collision.CompareTag("Bound"))
             FinJuego();
+
+        
     }
+
+    
 
 
     public void FinJuego()

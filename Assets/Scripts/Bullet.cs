@@ -2,13 +2,14 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {
     private bool derecha;
     private bool up;
     public int speed;
-    public float daño, play;
+    public float daño;
     //private float velo;
     public GameObject player1, player2;
     // Start is called before the first frame update
@@ -16,18 +17,22 @@ public class Bullet : MonoBehaviour
     {
         Invoke("DestroyBullet", 5f);
         //player = GameObject.Find("Player");
-        if (play == 0)
-        {
-            
+        
+        speed = 20;
 
+    }
+    private void Awake()
+    {
+        if (!photonView.IsMine)
+        {
+            derecha = player1.GetComponent<RPlayer>().spritee.flipX;
+            up = player1.GetComponent<RPlayer>().up;
         }
-        else if (play == 1)
+        else
         {
             derecha = player2.GetComponent<RPlayer>().spritee.flipX;
             up = player2.GetComponent<RPlayer>().up;
         }
-        speed = 20;
-
     }
 
     // Update is called once per frame
