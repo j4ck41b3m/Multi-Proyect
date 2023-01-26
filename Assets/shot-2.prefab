@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 2889446724739742510}
   - component: {fileID: 7010375439697002650}
   - component: {fileID: 6116482769963286925}
+  - component: {fileID: 7219892659675527598}
+  - component: {fileID: 6865638538586460907}
+  - component: {fileID: 6856393173433549058}
   m_Layer: 0
   m_Name: shot-2
   m_TagString: Untagged
@@ -49,8 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   "da\xF1o": 0.5
-  player1: {fileID: 8387293560816131305, guid: 403c1fcfc87d8024db8fe0214f64b42e, type: 3}
-  player2: {fileID: 722847606339494998, guid: 7e4f92aa641d3d942a9ac33596b23d83, type: 3}
+  player: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!70 &7010375439697002650
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -88,6 +91,62 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7219892659675527598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889446724739742511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 6865638538586460907}
+  - {fileID: 6856393173433549058}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &6865638538586460907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889446724739742511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
+--- !u!114 &6856393173433549058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889446724739742511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &4567682927838497260
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,17 +43,30 @@ public class ControlHud : MonoBehaviour
     public void SetNowMonster(int left)
     {
         CurrentMonsterTxt.text = ":" + left;
-        if (left == 0)
+       /* if (left == 0)
         {
             SetBall();
-        }
+        }*/
     }
 
-    public void SetBall()
+    /*public void SetBall()
     {
         
         
             ball.color = Color.blue;
         
+    }*/
+
+    public void SetBall(bool Play1)
+    {
+        if (Play1)
+        {
+            ball.color = Color.blue;
+        }
+        else
+        {
+            ball.color = Color.red;
+        }
+
     }
 }

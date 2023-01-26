@@ -11,28 +11,35 @@ public class Bullet : MonoBehaviourPun
     public int speed;
     public float daño;
     //private float velo;
-    public GameObject player1, player2;
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
         Invoke("DestroyBullet", 5f);
-        //player = GameObject.Find("Player");
-        
+       
+
         speed = 20;
 
     }
     private void Awake()
     {
-        if (!photonView.IsMine)
+        /*if (photonView.IsMine)
         {
-            derecha = player1.GetComponent<RPlayer>().spritee.flipX;
-            up = player1.GetComponent<RPlayer>().up;
-        }
-        else
-        {
-            derecha = player2.GetComponent<RPlayer>().spritee.flipX;
-            up = player2.GetComponent<RPlayer>().up;
-        }
+            if (PhotonNetwork.IsMasterClient)
+            {
+                derecha = player.GetComponent<RPlayer>().spritee.flipX;
+                up = player.GetComponent<RPlayer>().up;
+            }
+            else if (!PhotonNetwork.IsMasterClient)
+            {
+                derecha = player2.GetComponent<RPlayer>().spritee.flipX;
+                up = player2.GetComponent<RPlayer>().up;
+            }
+        }*/
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        derecha = player.GetComponent<RPlayer>().spritee.flipX;
+        up = player.GetComponent<RPlayer>().up;
     }
 
     // Update is called once per frame
@@ -54,7 +61,7 @@ public class Bullet : MonoBehaviourPun
         else
             gameObject.transform.Translate(0, 1 * speed * Time.deltaTime, 0);
 
-       // Debug.Log("Es " + derecha);
+        Debug.Log("Es " + derecha);
 
     }
     

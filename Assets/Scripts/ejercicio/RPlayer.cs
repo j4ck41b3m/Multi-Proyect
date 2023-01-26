@@ -15,7 +15,7 @@ public class RPlayer : MonoBehaviourPun
     private Animator animator;
     public int puntuacion;
     public int vidas;
-    public bool vulnerable, shottan, up, charged, runnin, cargao;
+    public bool vulnerable, shottan, up, charged, runnin, cargao, derecha;
     public int numeroPowerUps;
 
     public int tiempoNivel;
@@ -52,7 +52,7 @@ public class RPlayer : MonoBehaviourPun
 
         vulnerable = true;
 
-        tiempoInicio = Time.time;
+        tiempoInicio = 150;
         lienzo = GameObject.Find("Canvas");
             canvas = lienzo.GetComponent<Canvas>();
         hud = canvas.GetComponent<ControlHud>();
@@ -67,8 +67,8 @@ public class RPlayer : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
-       
-       
+        derecha = spritee.flipX;
+      
         //animator.Play("chargeUP");
 
         if (numeroPowerUps > 0)
@@ -104,11 +104,12 @@ public class RPlayer : MonoBehaviourPun
         //Debug.Log(jugador.velocity.x);
         //Debug.Log(Input.GetAxis("Horizontal"));
 
-        tiempoEmpleado = (int)Time.time - (int)tiempoInicio;
-        if (tiempoNivel-tiempoEmpleado <0)
+        tiempoInicio -= Time.deltaTime;
+        tiempoEmpleado = Mathf.FloorToInt(tiempoInicio);
+        if (tiempoEmpleado <0)
         {
             FinJuego();
-            Ganado();
+            //Ganado();
         }
 
         hud.SetTiempo(tiempoEmpleado);
@@ -440,7 +441,7 @@ public class RPlayer : MonoBehaviourPun
         if (!photonView.IsMine)
         {
             camara.SetActive(false);
-
+            gameObject.tag = "Untagged";
             this.enabled = false;
         }
     }

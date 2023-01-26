@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7371502063573083211}
   - component: {fileID: 6045820747046446428}
   - component: {fileID: 4929616633444006879}
+  - component: {fileID: -4554666112420456703}
+  - component: {fileID: 7088134292981583118}
+  - component: {fileID: 442696618625626}
   m_Layer: 0
   m_Name: shot-1
   m_TagString: Untagged
@@ -102,8 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   "da\xF1o": 0.5
-  player1: {fileID: 8387293560816131305, guid: 403c1fcfc87d8024db8fe0214f64b42e, type: 3}
-  player2: {fileID: 722847606339494998, guid: 7e4f92aa641d3d942a9ac33596b23d83, type: 3}
+  player: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!70 &7371502063573083211
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +164,59 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4554666112420456703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394708338369454078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7088134292981583118}
+  - {fileID: 442696618625626}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &7088134292981583118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394708338369454078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
+--- !u!114 &442696618625626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3394708338369454078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3
